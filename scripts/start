@@ -1,0 +1,30 @@
+#!/bin/bash
+# Thanks to https://github.com/overshard/docker-mumble/blob/master/scripts/start for this one
+# -----------------------------------------------------------------------------
+# docker-mumble /start script
+#
+# Authors: Isaac Bythewood
+# Updated: Oct 20th, 2014
+# -----------------------------------------------------------------------------
+
+INI_PATH=/etc/mumble-server.ini
+
+
+# Set Mumble SuperUser password
+if [ ! -f /data/superuser_password.txt ]
+then
+    SUPERUSER_PASSWORD=`pwgen -c -n -1 15`
+    echo $SUPERUSER_PASSWORD > /data/superuser_password.txt
+    murmurd -ini $INI_PATH -supw $SUPERUSER_PASSWORD
+    sleep 3
+    echo
+    echo "# ------------------------------------------------------------------------------"
+    echo "# SuperUser Password"
+    echo "#"
+    echo "# Password: $SUPERUSER_PASSWORD"
+    echo "#"
+    echo "# Connect to the server as SuperUser and setup an admin user."
+    echo "# ------------------------------------------------------------------------------"
+    echo
+fi
+/usr/sbin/murmurd -ini $INI_PATH -fg -v
