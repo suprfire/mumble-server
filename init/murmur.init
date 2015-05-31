@@ -22,7 +22,7 @@ GROUP=mumble-server
 
 test -x $DAEMON || exit 0
 
-INIFILE=/data/mumcfg/mumble-server.ini
+INIFILE=/etc/mumble-server.ini
 DAEMON_OPTS="-ini $INIFILE"
 MURMUR_DAEMON_START=0
 MURMUR_USE_CAPABILITIES=0
