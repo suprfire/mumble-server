@@ -7,7 +7,7 @@
 # Updated: Oct 20th, 2014
 # -----------------------------------------------------------------------------
 
-INI_PATH=/data/mumcfg/mumble-server.ini
+INI_PATH=/etc/mumble-server.ini
 
 
 # Set Mumble SuperUser password
