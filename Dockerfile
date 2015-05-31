@@ -8,7 +8,6 @@ RUN apt-get update && \
 
 # Default port for mumble
 EXPOSE 13579
-ADD ./mumble/mumble-server.ini /etc/mumble-server.ini
 ADD ./init/murmur.init /etc/init/murmur.init
 ADD ./scripts/start /start
 RUN mkdir /data && \
