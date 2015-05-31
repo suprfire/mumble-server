@@ -14,7 +14,6 @@ ADD ./scripts/start /start
 RUN mkdir /data && \
 	chown mumble-server:mumble-server /data && \
 	chmod +x /start && \
-	ln -s /data/mumble-server.ini /etc/mumble-server.ini
 
 VOLUME ["/data"]
 USER mumble-server
