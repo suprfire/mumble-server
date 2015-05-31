@@ -14,7 +14,8 @@ RUN mkdir /data && \
 	chown mumble-server:mumble-server /data && \
 	chmod +x /start
 	
-RUN ln -s /data/mumble-server.ini /etc/mumble-server.ini
+RUN rm -f /etc/mumble-server.ini && \
+	ln -s /data/mumble-server.ini /etc/mumble-server.ini
 
 VOLUME ["/data"]
 USER mumble-server
