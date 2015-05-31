@@ -8,12 +8,14 @@ RUN apt-get update && \
 
 # Default port for mumble
 EXPOSE 13579
-ADD ./mumble/mumble-server.ini /data/mumble-server.ini
+
 ADD ./init/murmur.init /etc/init/murmur.init
 ADD ./scripts/start /start
 RUN mkdir /data && \
 	chown mumble-server:mumble-server /data && \
 	chmod +x /start
+	
+ADD ./mumble/mumble-server.ini /data/mumble-server.ini
 
 VOLUME ["/data"]
 USER mumble-server
