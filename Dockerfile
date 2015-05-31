@@ -7,7 +7,7 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 
 # Default port for mumble
-EXPOSE 13579
+EXPOSE 64738
 ADD ./init/murmur.init /etc/init/murmur.init
 ADD ./scripts/start /start
 RUN mkdir /data && \
