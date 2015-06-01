@@ -15,7 +15,8 @@ RUN mkdir /data && \
 	chmod +x /start
 	
 	
-RUN ln -s /data/mumble-server.ini /etc/mumble-server.ini && \
+RUN rm -f /etc/mumble-server.ini && \
+	ln -s /data/mumble-server.ini /etc/mumble-server.ini && \
 	ln -s /data/mumble-server.log /etc/mumble-server.log
 
 VOLUME ["/data"]
